@@ -116,7 +116,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
 }
 .brand-word { display: inline-flex; }
 .brand-logo {
-  height: 22px;
+  height: 44px;
   width: auto;
   display: block;
 }
@@ -243,6 +243,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
 .accordion-panel-inner--wide { max-width: none; }
 .accordion-panel .accordion-item .accordion-trigger { padding-left: 20px; font-size: 13px; }
 .accordion-panel .accordion-panel .accordion-item .accordion-trigger { padding-left: 40px; font-size: 12px; }
+/* line the menu rows up under the arrow of the accordion item they belong
+   to (eg. Cocktails' rows sit under Cocktails' own arrow), matching the
+   trigger indentation rules above one level in */
+.accordion-panel .accordion-item .accordion-panel-inner--wide { padding-left: 20px; }
+.accordion-panel .accordion-panel .accordion-item .accordion-panel-inner--wide { padding-left: 40px; }
 
 .menu-group { margin-bottom: 22px; }
 .menu-group:last-child { margin-bottom: 0; }
@@ -286,6 +291,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
 @media (max-width: 720px) {
   .accordion-panel .accordion-item .accordion-trigger { padding-left: 14px; }
   .accordion-panel .accordion-panel .accordion-item .accordion-trigger { padding-left: 26px; }
+  .accordion-panel .accordion-item .accordion-panel-inner--wide { padding-left: 14px; }
+  .accordion-panel .accordion-panel .accordion-item .accordion-panel-inner--wide { padding-left: 26px; }
   .menu-name { font-size: 13px; }
   .menu-price { font-size: 11.5px; }
   .menu-row-meta { font-size: 11px; }
