@@ -1,0 +1,180 @@
+/* ===========================================================
+   Lagotto — Site 4: light, paper-and-ink aesthetic inspired by
+   Gimlet Melbourne (gimlet.melbourne). Same Lagotto typography,
+   sections and copy as Site 3, reskinned for a bright, minimal
+   read. Info page is still text only — no photography.
+   =========================================================== */
+
+@font-face {
+  font-family: "Union";
+  src: url("../fonts/Union-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Union";
+  src: url("../fonts/Union-Regular-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Modern MT Condensed";
+  src: url("../fonts/ModernMT-Condensed.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f6f1e4;
+  --paper-dim: #ece4d0;
+  --ink: #241f1a;
+  --ink-dim: #6e6259;
+  --accent: #8a3230;
+  --accent-dim: #5c2321;
+
+  --serif: "Union", "Iowan Old Style", Georgia, serif;
+  --cond:  "Modern MT Condensed", "Oswald", "Arial Narrow", sans-serif;
+
+  --max-w: 780px;
+  --edge: clamp(24px, 5vw, 72px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
+
+/* ---------- landing / welcome page ----------
+   logo mark, the building illustration below it (same width as the
+   logo), then the Reservations / More actions */
+.welcome-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 60px var(--edge);
+}
+.welcome-stage { text-align: center; }
+.welcome-logo {
+  width: min(360px, 60vw);
+  height: auto;
+  margin: 0 auto;
+}
+.welcome-building {
+  width: min(360px, 60vw);
+  height: auto;
+  margin: 32px auto 0;
+  display: block;
+}
+.welcome-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+/* ---------- header (info page) ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px var(--edge) 0;
+  max-width: calc(var(--max-w) + var(--edge) * 2);
+  margin: 0 auto;
+}
+.brand-word {
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 20px;
+  color: var(--ink);
+}
+.header-note {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+.header-note:hover { color: var(--accent); }
+
+/* ---------- info page body ---------- */
+.info-main {
+  padding: 60px var(--edge) 100px;
+  max-width: calc(var(--max-w) + var(--edge) * 2);
+  margin: 0 auto;
+}
+.info-intro { max-width: var(--max-w); margin: 0; }
+.info-intro p { color: var(--ink-dim); line-height: 1.4; margin: 0 0 16px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  padding: 15px 32px;
+  border-radius: 2px;
+  transition: all .25s ease;
+}
+.btn-solid { background: var(--accent); color: var(--paper); }
+.btn-solid:hover { background: var(--ink); }
+.btn-outline { border: 1px solid rgba(36,31,26,0.4); color: var(--ink); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- accordion ---------- */
+.accordion { max-width: var(--max-w); margin-top: 50px; }
+.accordion-trigger {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: left;
+}
+.accordion-trigger:hover { color: var(--accent); }
+.accordion-arrow { display: inline-block; transition: transform .3s ease; color: var(--accent); }
+.accordion-item.is-open .accordion-arrow { transform: rotate(90deg); }
+
+.accordion-panel { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+.accordion-panel-inner { padding: 10px 0 26px; max-width: 60ch; }
+.accordion-panel-inner p { color: var(--ink-dim); line-height: 1.4; margin: 0 0 14px; }
+.accordion-panel-inner .btn { margin-top: 6px; }
+.accordion-panel-inner a:not(.btn) { color: var(--ink); border-bottom: 1px solid rgba(36,31,26,0.35); }
+.accordion-panel-inner a:not(.btn):hover { color: var(--accent); border-color: var(--accent); }
+.accordion-panel-inner .menu-item { margin-bottom: 22px; }
+.accordion-panel-inner .menu-item p:last-child { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .info-main { padding: 40px var(--edge) 70px; }
+  .info-intro p { font-size: 15px; line-height: 1.35; margin: 0 0 12px; }
+  .accordion { margin-top: 30px; }
+  .accordion-trigger { font-size: 13px; }
+  .accordion-panel-inner p { font-size: 14px; line-height: 1.35; margin: 0 0 10px; }
+  .site-header { padding-top: 24px; }
+}
