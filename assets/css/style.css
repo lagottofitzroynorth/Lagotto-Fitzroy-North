@@ -28,13 +28,13 @@
 }
 
 :root {
-  --paper: #f6f1e4;
-  --paper-dim: #ece4d0;
-  --ink: #241f1a;
-  --ink-dim: #6e6259;
-  --ink-light: #a89c8d;
-  --accent: #8a3230;
-  --accent-dim: #5c2321;
+  --paper: #f6f4ee;
+  --paper-dim: #eae6d9;
+  --ink: #20242b;
+  --ink-dim: #585d66;
+  --ink-light: #9a9fa6;
+  --accent: #c1673f;
+  --accent-dim: #8f4a2d;
 
   --serif: "Union", "Iowan Old Style", Georgia, serif;
   --cond:  "Modern MT Condensed", "Oswald", "Arial Narrow", sans-serif;
@@ -84,6 +84,11 @@ body[data-page="home"] {
   height: auto;
   margin: 32px auto 0;
   display: block;
+  /* the illustration's line work is pure grayscale (zero saturation), so a
+     hue-rotate only touches the one saturated colour in it — the awning/
+     plant red — nudging it from red toward the terracotta accent instead
+     of hand-editing thousands of traced path fills */
+  filter: hue-rotate(18deg);
 }
 .welcome-actions {
   display: flex;
