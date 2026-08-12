@@ -175,7 +175,28 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
 }
 .accordion-trigger:hover { color: var(--accent); }
 .accordion-arrow { display: inline-block; transition: transform .3s ease; color: var(--accent); }
-.accordion-item.is-open .accordion-arrow { transform: rotate(90deg); }
+/* direct-child combinators only — a plain descendant selector here would
+   also rotate every nested arrow whenever any ANCESTOR item is open,
+   since they're descendants of it too, not just the item's own arrow */
+.accordion-item.is-open > .accordion-trigger > .accordion-arrow { transform: rotate(90deg); }
+
+/* inline trigger: lets a few words mid-paragraph (eg. "Chef's Menu" in the
+   Reservations copy) open an accordion panel, instead of the usual
+   full-width block button — overrides the block/uppercase/indent rules
+   that would otherwise apply since it still lives inside an .accordion-item */
+.accordion-trigger.accordion-trigger--inline {
+  display: inline;
+  width: auto;
+  padding-left: 0 !important;
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(36,31,26,0.35);
+}
+.accordion-trigger.accordion-trigger--inline:hover { color: var(--accent); border-color: var(--accent); }
 
 .accordion-panel { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
 .accordion-panel-inner { padding: 10px 0 26px; max-width: 60ch; }
