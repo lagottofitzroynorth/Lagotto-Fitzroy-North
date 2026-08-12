@@ -33,8 +33,8 @@
   --ink: #20242b;
   --ink-dim: #585d66;
   --ink-light: #9a9fa6;
-  --accent: #c1673f;
-  --accent-dim: #8f4a2d;
+  --accent: #a12425;
+  --accent-dim: #71191a;
 
   --serif: "Union", "Iowan Old Style", Georgia, serif;
   --cond:  "Modern MT Condensed", "Oswald", "Arial Narrow", sans-serif;
@@ -75,20 +75,15 @@ body[data-page="home"] {
 }
 .welcome-stage { text-align: center; }
 .welcome-logo {
-  width: min(360px, 60vw);
+  width: min(270px, 45vw);
   height: auto;
   margin: 0 auto;
 }
 .welcome-building {
-  width: min(520px, 85vw);
+  width: min(390px, 64vw);
   height: auto;
-  margin: 32px auto 0;
+  margin: 48px auto 0;
   display: block;
-  /* the illustration's line work is pure grayscale (zero saturation), so a
-     hue-rotate only touches the one saturated colour in it — the awning/
-     plant red — nudging it from red toward the terracotta accent instead
-     of hand-editing thousands of traced path fills */
-  filter: hue-rotate(18deg);
 }
 .welcome-actions {
   display: flex;
@@ -96,8 +91,12 @@ body[data-page="home"] {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-top: 36px;
+  margin-top: 48px;
 }
+/* sized down to match the smaller logo/building group above — kept
+   separate from the shared .btn used elsewhere (Reserve a Table, Buy a
+   Voucher) so only this hero instance shrinks */
+.welcome-actions .btn { padding: 11px 24px; font-size: 10px; }
 
 /* home page: "More" sits top-right as plain text, same corner Site 3
    uses for its nav link, rather than competing with Reservations as
@@ -138,6 +137,7 @@ body[data-page="home"] {
   color: var(--accent);
 }
 .header-note:hover { color: var(--accent-dim); }
+.header-note-icon { display: none; }
 
 /* ---------- info page body ---------- */
 .info-main {
@@ -201,7 +201,7 @@ body[data-page="home"] {
   font-family: inherit;
   text-transform: none;
   letter-spacing: normal;
-  font-size: inherit;
+  font-size: inherit !important;
   line-height: inherit;
   color: var(--ink);
   border-bottom: 1px solid rgba(36,31,26,0.35);
@@ -277,6 +277,20 @@ body[data-page="home"] {
   color: var(--accent);
   margin: 0 0 8px;
 }
+.menu-subhead-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.menu-subhead-row .menu-subhead { margin: 0 0 8px; }
+.menu-subhead-price {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
 .menu-row { margin-bottom: 6px; }
 .menu-row:last-child { margin-bottom: 0; }
 .menu-row-head {
@@ -294,17 +308,6 @@ body[data-page="home"] {
   font-size: 12px;
 }
 .menu-row-meta { color: var(--ink-light); font-size: 11.5px; line-height: 1.25; margin: 2px 0 0; }
-.menu-chef-price {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-family: var(--cond);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 13px;
-  color: var(--ink);
-  margin: 0 0 18px;
-}
 
 /* Visit breaks out of the 60ch text column to run the address/hours copy
    alongside a small inline map of the corner the door is on (ported from
@@ -370,6 +373,18 @@ body[data-page="home"] {
   .accordion-trigger { font-size: 13px; }
   .accordion-panel-inner p { font-size: 14px; line-height: 1.35; margin: 0 0 10px; }
   .site-header { padding-top: 24px; }
+  /* the Instagram wordmark crowds the logo at narrow widths — swap it for
+     a small icon so the header keeps its breathing room */
+  .header-note-text {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .header-note-icon { display: block; width: 22px; height: 22px; color: var(--accent); }
 }
 
 /* mobile: anchor Reservations to a fixed bottom bar rather than letting it
