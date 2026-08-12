@@ -126,7 +126,7 @@ body[data-page="home"] {
 }
 .brand-word { display: inline-flex; }
 .brand-logo {
-  height: 44px;
+  height: 22px;
   width: auto;
   display: block;
 }
@@ -304,6 +304,55 @@ body[data-page="home"] {
   font-size: 13px;
   color: var(--ink);
   margin: 0 0 18px;
+}
+
+/* Visit breaks out of the 60ch text column to run the address/hours copy
+   alongside a small inline map of the corner the door is on (ported from
+   Site 3's dark-theme version, recoloured for the light paper background) */
+.visit-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+.visit-info { flex: 1 1 300px; max-width: 60ch; }
+.visit-map { flex: 0 0 340px; max-width: 340px; }
+.visit-map svg { width: 100%; height: auto; display: block; }
+
+.visit-map-roads { opacity: 0.3; }
+.visit-map-road {
+  fill: none;
+  stroke: var(--ink-dim);
+  stroke-linecap: round;
+}
+.visit-map-building {
+  fill: rgba(32, 36, 43, 0.05);
+  stroke: var(--ink-dim);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.visit-map-label {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 27px;
+  fill: var(--ink-dim);
+}
+.visit-map-pin-body { fill: var(--accent); stroke: var(--accent-dim); stroke-width: 1.5; }
+.visit-map-pin-center { fill: var(--ink); }
+
+.visit-map-entrance-arrow { stroke: var(--accent); stroke-width: 2.5; }
+.visit-map-entrance-arrowhead { fill: var(--accent); }
+.visit-map-entrance-label {
+  font-family: var(--cond);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 21px;
+  fill: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .visit-layout { flex-direction: column; gap: 24px; }
+  .visit-map { max-width: 340px; }
 }
 
 @media (max-width: 720px) {
