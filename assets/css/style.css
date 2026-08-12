@@ -170,6 +170,37 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
 .accordion-panel-inner .menu-item { margin-bottom: 22px; }
 .accordion-panel-inner .menu-item p:last-child { margin-bottom: 0; }
 
+/* SevenRooms renders its own trigger button inside #sr-subscription-root
+   (button chrome, an icon, brand-coloured text) — strip that down to a
+   plain coloured text link matching the rest of the page. data-test is
+   used as the hook rather than their styled-components classnames,
+   since those are hashed and will change whenever they redeploy. */
+#sr-subscription-root button[data-test="subscription-widget-embed-button"] {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+#sr-subscription-root button[data-test="subscription-widget-embed-button"] i {
+  display: none !important;
+}
+#sr-subscription-root button[data-test="subscription-widget-embed-button"] > div {
+  padding: 0 !important;
+  gap: 0 !important;
+}
+#sr-subscription-root button[data-test="subscription-widget-embed-button"] span {
+  color: var(--accent) !important;
+  font-family: var(--cond) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  font-size: 12px !important;
+}
+#sr-subscription-root button[data-test="subscription-widget-embed-button"]:hover span {
+  color: var(--ink) !important;
+}
+
 @media (max-width: 720px) {
   .info-main { padding: 40px var(--edge) 70px; }
   .info-intro p { font-size: 15px; line-height: 1.35; margin: 0 0 12px; }
