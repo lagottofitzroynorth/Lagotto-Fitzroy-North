@@ -390,9 +390,9 @@ body[data-page="home"] {
 }
 
 @media (max-width: 720px) {
-  .info-main { padding: 40px var(--edge) 70px; }
+  .info-main { padding: 64px var(--edge) 70px; }
   .info-intro p { font-size: 15px; line-height: 1.35; margin: 0 0 12px; }
-  .accordion { margin-top: 30px; }
+  .accordion { margin-top: 50px; }
   .accordion-trigger { font-size: 13px; }
   .accordion-panel-inner p { font-size: 14px; line-height: 1.35; margin: 0 0 10px; }
   .site-header { padding-top: 24px; }
