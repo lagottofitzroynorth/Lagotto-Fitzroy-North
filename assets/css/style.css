@@ -147,6 +147,9 @@ body[data-page="home"] {
 }
 .info-intro { max-width: var(--max-w); margin: 0; }
 .info-intro p { color: var(--ink-dim); line-height: 1.4; margin: 0 0 16px; }
+@media (min-width: 900px) {
+  .info-intro { max-width: 50%; }
+}
 
 /* ---------- buttons ---------- */
 .btn {
