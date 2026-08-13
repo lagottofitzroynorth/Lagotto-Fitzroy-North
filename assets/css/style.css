@@ -248,14 +248,21 @@ body[data-page="home"] {
   gap: 0 !important;
 }
 #sr-subscription-root button[data-test="subscription-widget-embed-button"] span {
-  color: var(--accent) !important;
-  font-family: var(--cond) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.14em !important;
-  font-size: 12px !important;
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-size: 17px !important;
+  border-bottom: 1px solid rgba(36,31,26,0.35);
 }
 #sr-subscription-root button[data-test="subscription-widget-embed-button"]:hover span {
-  color: var(--ink) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent);
+}
+@media (max-width: 720px) {
+  #sr-subscription-root button[data-test="subscription-widget-embed-button"] span {
+    font-size: 14px !important;
+  }
 }
 
 /* ---------- nested menu / drink list ----------
@@ -334,44 +341,45 @@ body[data-page="home"] {
   gap: 48px;
 }
 .visit-info { flex: 1 1 300px; max-width: 60ch; }
-.visit-map { flex: 0 0 340px; max-width: 340px; }
+.visit-map { flex: 0 0 480px; max-width: 480px; }
 .visit-map svg { width: 100%; height: auto; display: block; }
 
-.visit-map-roads { opacity: 0.3; }
+/* thin architectural line work, echoing the pen-sketch building
+   illustration on the home page rather than solid road-bed colour */
 .visit-map-road {
   fill: none;
   stroke: var(--ink-dim);
+  stroke-width: 6;
+  stroke-linejoin: round;
   stroke-linecap: round;
 }
 .visit-map-building {
   fill: rgba(32, 36, 43, 0.05);
   stroke: var(--ink-dim);
-  stroke-width: 2;
+  stroke-width: 6;
   stroke-linejoin: round;
 }
+.visit-map-wordmark { fill: var(--ink); }
 .visit-map-label {
-  font-family: var(--cond);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 27px;
+  font-family: var(--serif);
+  letter-spacing: 0.06em;
+  font-size: 40px;
   fill: var(--ink-dim);
 }
-.visit-map-pin-body { fill: var(--accent); stroke: var(--accent-dim); stroke-width: 1.5; }
+.visit-map-pin-body { fill: var(--accent); stroke: var(--accent-dim); stroke-width: 3; }
 .visit-map-pin-center { fill: var(--ink); }
 
-.visit-map-entrance-arrow { stroke: var(--accent); stroke-width: 2.5; }
-.visit-map-entrance-arrowhead { fill: var(--accent); }
+.visit-map-entrance-arrow { stroke: var(--accent); stroke-width: 4; }
 .visit-map-entrance-label {
-  font-family: var(--cond);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 21px;
+  font-family: var(--serif);
+  letter-spacing: 0.06em;
+  font-size: 24px;
   fill: var(--accent);
 }
 
 @media (max-width: 720px) {
   .visit-layout { flex-direction: column; gap: 24px; }
-  .visit-map { max-width: 340px; }
+  .visit-map { max-width: 420px; }
 }
 
 @media (max-width: 720px) {
