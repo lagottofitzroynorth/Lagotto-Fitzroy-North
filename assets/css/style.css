@@ -40,7 +40,7 @@
   --cond:  "Modern MT Condensed", "Oswald", "Arial Narrow", sans-serif;
 
   --max-w: 780px;
-  --edge: clamp(24px, 5vw, 72px);
+  --edge: clamp(16px, 4vw, 64px);
 }
 
 * { box-sizing: border-box; }
@@ -310,7 +310,10 @@ body[data-page="home"] {
   font-variant-numeric: tabular-nums;
   font-size: 12px;
 }
-.menu-row-meta { color: var(--ink-light); font-size: 11.5px; line-height: 1.25; margin: 2px 0 0; }
+/* scoped via .menu-row so this beats the generic ".accordion-panel-inner p"
+   rule on specificity — otherwise that rule's mobile font-size/colour
+   silently wins since it also targets any <p>, .menu-row-meta included */
+.menu-row .menu-row-meta { color: var(--ink-light); font-size: 11.5px; line-height: 1.25; margin: 2px 0 0; }
 
 /* Visit breaks out of the 60ch text column to run the address/hours copy
    alongside a small inline map of the corner the door is on (ported from
@@ -366,7 +369,7 @@ body[data-page="home"] {
   .accordion-panel .accordion-item .accordion-panel-inner--wide { padding-left: 14px; }
   .menu-name { font-size: 13px; }
   .menu-price { font-size: 11.5px; }
-  .menu-row-meta { font-size: 11px; }
+  .menu-row .menu-row-meta { font-size: 11px; }
 }
 
 @media (max-width: 720px) {
