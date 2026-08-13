@@ -340,7 +340,7 @@ body[data-page="home"] {
   gap: 48px;
 }
 .visit-info { flex: 1 1 300px; max-width: 60ch; }
-.visit-map { flex: 0 0 480px; max-width: 480px; }
+.visit-map { flex: 0 0 576px; max-width: 576px; }
 .visit-map svg { width: 100%; height: auto; display: block; }
 
 /* thin architectural line work, echoing the pen-sketch building
@@ -378,7 +378,7 @@ body[data-page="home"] {
 
 @media (max-width: 720px) {
   .visit-layout { flex-direction: column; gap: 24px; }
-  .visit-map { max-width: 420px; }
+  .visit-map { max-width: 504px; }
 }
 
 @media (max-width: 720px) {
