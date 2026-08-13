@@ -132,7 +132,6 @@ body[data-page="home"] {
   align-items: center;
   justify-content: space-between;
   padding: 40px var(--edge) 0;
-  max-width: calc(var(--max-w) + var(--edge) * 2);
 }
 .brand-word { display: inline-flex; }
 .brand-logo {
@@ -153,7 +152,7 @@ body[data-page="home"] {
 
 /* ---------- info page body ---------- */
 .info-main {
-  padding: 60px var(--edge) 100px;
+  padding: 100px var(--edge) 100px;
   max-width: calc(var(--max-w) + var(--edge) * 2);
 }
 .info-intro { max-width: var(--max-w); margin: 0; animation: fade-in-up .8s ease .2s both; }
@@ -178,7 +177,7 @@ body[data-page="home"] {
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- accordion ---------- */
-.accordion { max-width: var(--max-w); margin-top: 50px; animation: fade-in-up .8s ease .4s both; }
+.accordion { max-width: var(--max-w); margin-top: 80px; animation: fade-in-up .8s ease .4s both; }
 .accordion-trigger {
   display: flex;
   align-items: baseline;
