@@ -45,6 +45,14 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}
 body {
   margin: 0;
   background: var(--paper);
@@ -78,12 +86,14 @@ body[data-page="home"] {
   width: min(270px, 45vw);
   height: auto;
   margin: 0 auto;
+  animation: fade-in-up .8s ease .25s both;
 }
 .welcome-building {
   width: min(390px, 64vw);
   height: auto;
   margin: 48px auto 0;
   display: block;
+  animation: fade-in-up .8s ease both;
 }
 .welcome-actions {
   display: flex;
@@ -92,6 +102,7 @@ body[data-page="home"] {
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 48px;
+  animation: fade-in-up .8s ease .5s both;
 }
 /* sized down to match the smaller logo/building group above — kept
    separate from the shared .btn used elsewhere (Reserve a Table, Buy a
@@ -111,6 +122,7 @@ body[data-page="home"] {
   letter-spacing: 0.14em;
   font-size: 14px;
   color: var(--ink-dim);
+  animation: fade-in-up .8s ease .75s both;
 }
 .home-more-link:hover { color: var(--accent); }
 
@@ -121,7 +133,6 @@ body[data-page="home"] {
   justify-content: space-between;
   padding: 40px var(--edge) 0;
   max-width: calc(var(--max-w) + var(--edge) * 2);
-  margin: 0 auto;
 }
 .brand-word { display: inline-flex; }
 .brand-logo {
@@ -138,19 +149,18 @@ body[data-page="home"] {
 }
 .header-note:hover { color: var(--accent-dim); }
 .header-note-icon { display: none; }
+.site-header { animation: fade-in-up .8s ease both; }
 
 /* ---------- info page body ---------- */
 .info-main {
   padding: 60px var(--edge) 100px;
   max-width: calc(var(--max-w) + var(--edge) * 2);
-  margin: 0 auto;
 }
-.info-intro { max-width: var(--max-w); margin: 0; }
+.info-intro { max-width: var(--max-w); margin: 0; animation: fade-in-up .8s ease .2s both; }
 .info-intro p { color: var(--ink-dim); line-height: 1.4; margin: 0 0 16px; }
 @media (min-width: 900px) {
-  .info-intro { max-width: 50%; }
+  .info-intro { max-width: 560px; }
 }
-
 /* ---------- buttons ---------- */
 .btn {
   display: inline-block;
@@ -168,7 +178,7 @@ body[data-page="home"] {
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- accordion ---------- */
-.accordion { max-width: var(--max-w); margin-top: 50px; }
+.accordion { max-width: var(--max-w); margin-top: 50px; animation: fade-in-up .8s ease .4s both; }
 .accordion-trigger {
   display: flex;
   align-items: baseline;
