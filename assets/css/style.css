@@ -340,45 +340,40 @@ body[data-page="home"] {
   gap: 48px;
 }
 .visit-info { flex: 1 1 300px; max-width: 60ch; }
-.visit-map { flex: 0 0 576px; max-width: 576px; }
+.visit-map { flex: 0 1 150px; max-width: 150px; }
 .visit-map svg { width: 100%; height: auto; display: block; }
 
-/* thin architectural line work, echoing the pen-sketch building
-   illustration on the home page rather than solid road-bed colour */
+/* thin line-art map, single accent colour throughout to match the
+   printed/emailed version of this map elsewhere */
 .visit-map-road {
   fill: none;
-  stroke: var(--ink-dim);
-  stroke-width: 6;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-miterlimit: 10;
 }
 .visit-map-building {
-  fill: rgba(32, 36, 43, 0.05);
-  stroke: var(--ink-dim);
-  stroke-width: 6;
-  stroke-linejoin: round;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-miterlimit: 10;
 }
-.visit-map-wordmark { fill: var(--ink); }
+.visit-map-wordmark { fill: var(--accent); }
 .visit-map-label {
-  font-family: var(--serif);
-  letter-spacing: 0.06em;
-  font-size: 40px;
-  fill: var(--ink-dim);
+  font-family: ArialMT, Arial, sans-serif;
+  font-size: 35px;
+  fill: var(--accent);
 }
-.visit-map-pin-body { fill: var(--accent); stroke: var(--accent-dim); stroke-width: 3; }
-.visit-map-pin-center { fill: var(--ink); }
 
-.visit-map-entrance-arrow { stroke: var(--accent); stroke-width: 4; }
+.visit-map-entrance-arrow { fill: var(--accent); stroke: var(--accent); stroke-miterlimit: 10; stroke-width: 4; }
 .visit-map-entrance-label {
-  font-family: var(--serif);
-  letter-spacing: 0.06em;
-  font-size: 24px;
+  font-family: ArialMT, Arial, sans-serif;
+  font-size: 20px;
   fill: var(--accent);
 }
 
 @media (max-width: 720px) {
   .visit-layout { flex-direction: column; gap: 24px; }
-  .visit-map { max-width: 504px; }
+  .visit-map { max-width: 130px; }
 }
 
 @media (max-width: 720px) {
