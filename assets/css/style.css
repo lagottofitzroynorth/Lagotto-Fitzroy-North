@@ -46,6 +46,19 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* visually hidden but present for screen readers / crawlers — same
+   off-screen technique as .header-note-text below, pulled out as a
+   reusable utility */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -200,7 +213,9 @@ body[data-page="home"] {
 /* direct-child combinators only — a plain descendant selector here would
    also rotate every nested arrow whenever any ANCESTOR item is open,
    since they're descendants of it too, not just the item's own arrow */
-.accordion-item.is-open > .accordion-trigger > .accordion-arrow { transform: rotate(90deg); }
+.accordion-item.is-open > .accordion-trigger > .accordion-arrow,
+.accordion-item.is-open > h2 > .accordion-trigger > .accordion-arrow,
+.accordion-item.is-open > h3 > .accordion-trigger > .accordion-arrow { transform: rotate(90deg); }
 
 /* inline trigger: lets a few words mid-paragraph (eg. "Chef's Menu" in the
    Reservations copy) open an accordion panel, instead of the usual

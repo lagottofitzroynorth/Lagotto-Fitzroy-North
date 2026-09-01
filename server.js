@@ -15,7 +15,9 @@ const types = {
   ".jpeg": "image/jpeg",
   ".webp": "image/webp",
   ".pdf": "application/pdf",
-  ".otf": "font/otf"
+  ".otf": "font/otf",
+  ".txt": "text/plain",
+  ".xml": "application/xml"
 };
 
 http.createServer((req, res) => {

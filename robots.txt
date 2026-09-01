@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lagotto-fitzroynorth.com.au/sitemap.xml
