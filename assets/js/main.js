@@ -52,9 +52,13 @@
   window.addEventListener("hashchange", openFromHash);
 
   /* keep open panels sized correctly if content reflows (fonts loading, resize,
-     the embedded newsletter iframe finishing its own load) */
+     the embedded newsletter iframe finishing its own load)
+     — direct-child only: a descendant selector would also size the
+     closed panels nested inside an open one (eg. Beverages under Menus),
+     revealing them. Android fires resize whenever the address bar
+     shows/hides on scroll, so that bug shows up just from scrolling. */
   window.addEventListener("resize", function () {
-    document.querySelectorAll(".accordion-item.is-open .accordion-panel").forEach(function (panel) {
+    document.querySelectorAll(".accordion-item.is-open > .accordion-panel").forEach(function (panel) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     });
   });
