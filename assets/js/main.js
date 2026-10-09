@@ -30,6 +30,27 @@
       }
     });
   });
+  /* deep links (e.g. more#menus from the Google Business Profile) —
+     open the named section, plus any sections it sits inside, then
+     scroll to it. Without this the link lands on a fully collapsed page. */
+  function openFromHash() {
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var target = id && document.getElementById(id);
+    if (!target || !target.classList.contains("accordion-item")) return;
+    var chain = [];
+    for (var el = target; el; el = el.parentElement ? el.parentElement.closest(".accordion-item") : null) {
+      chain.unshift(el);
+    }
+    chain.forEach(function (item) {
+      if (!item.classList.contains("is-open")) {
+        item.querySelector(".accordion-trigger").click();
+      }
+    });
+    target.scrollIntoView({ block: "start" });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+
   /* keep open panels sized correctly if content reflows (fonts loading, resize,
      the embedded newsletter iframe finishing its own load) */
   window.addEventListener("resize", function () {
